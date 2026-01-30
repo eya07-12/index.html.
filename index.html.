@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Just One Question</title>
+  <style>
+    * { box-sizing: border-box; }body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: linear-gradient(180deg, #ffe6f0, #fff);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  max-width: 420px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 22px;
+  color: #d14c86;
+  margin-bottom: 18px;
+}
+
+.buttons {
+  margin-top: 20px;
+  position: relative;
+  height: 120px;
+}
+
+button {
+  padding: 12px 26px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  position: absolute;
+}
+
+button:hover { transform: scale(1.05); }
+
+.yes {
+  background: #ff8fb1;
+  color: white;
+  left: 50%;
+  transform: translateX(-120%);
+}
+
+.no {
+  background: #ffd6e5;
+  color: #b34b74;
+  left: 50%;
+  transform: translateX(20%);
+}
+
+.lily {
+  position: absolute;
+  font-size: 36px;
+  opacity: 0.9;
+  animation: float 10s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(110vh) rotate(0deg); }
+  to { transform: translateY(-10vh) rotate(360deg); }
+}
+
+.hint {
+  position: absolute;
+  bottom: 16px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #b35c84;
+  opacity: 0.8;
+}
+
+  </style>
+</head>
+<body>  <div class="container">
+    <h1>Can I tell you something?</h1><div class="buttons">
+  <button class="yes" onclick="goNext()">Yes</button>
+  <button class="no" id="noBtn" onclick="moveNo()">No</button>
+</div>
+
+  </div>  <div class="hint">Tap anywhere 🌸</div>  <script>
+    function moveNo() {
+      const btn = document.getElementById('noBtn');
+      const maxX = window.innerWidth - btn.offsetWidth;
+      const maxY = window.innerHeight - btn.offsetHeight;
+
+      btn.style.left = Math.random() * maxX + 'px';
+      btn.style.top = Math.random() * maxY + 'px';
+    }
+
+    function goNext() {
+      window.location.href = 'love.html';
+    }
+
+    function createLily() {
+      const lily = document.createElement('div');
+      lily.className = 'lily';
+      lily.textContent = '🌸';
+      lily.style.left = Math.random() * 100 + 'vw';
+      lily.style.animationDuration = 8 + Math.random() * 6 + 's';
+      document.body.appendChild(lily);
+      setTimeout(() => lily.remove(), 14000);
+    }
+
+    setInterval(createLily, 700);
+
+    document.addEventListener('click', () => {
+      for (let i = 0; i < 4; i++) createLily();
+    });
+  </script></body>
+</html>
