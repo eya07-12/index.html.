@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Baloo 2', cursive;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #ffeaf2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 92%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 22px;
+  text-align: center;
+  display: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card.active {
+  display: block;
+}
+
+.image {
+  width: 160px;
+  height: 160px;
+  margin: 10px auto;
+  border-radius: 18px;
+  background: #ffd6e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+button {
+  margin-top: 16px;
+  padding: 12px 22px;
+  border-radius: 22px;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.pink { background: #ff9ebd; color: white; }
+.green { background: #7fe0c4; color: white; margin-left: 8px; }
+.gray { background: #ffd1e1; color: #444; }
+
+.long-letter {
+  width: 100%;
+  background: #fff7fb;
+  border-radius: 20px;
+  padding: 24px;
+  text-align: left;
+  line-height: 1.7;
+  color: #444;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1: TAP TO OPEN BOX -->
+<div class="card active" id="p1">
+  <div class="image">🎁</div>
+  <p>Tap to open</p>
+  <button class="pink" onclick="go(2)">Open</button>
+</div>
+
+<!-- PAGE 2: MAIL -->
+<div class="card" id="p2">
+  <div class="image">💌</div>
+  <p>Do you want to open it?</p>
+  <button class="pink" onclick="go(4)">Open it</button>
+  <button class="green" onclick="go(3)">No ty</button>
+</div>
+
+<!-- PAGE 3: SAD -->
+<div class="card" id="p3">
+  <div class="image">🥺</div>
+  <p>that made me sad</p>
+  <button class="gray" onclick="go(2)">Again</button>
+</div>
+
+<!-- PAGE 4: LETTER -->
+<div class="card" id="p4">
+  <div class="long-letter">
+    I remember the time when I wasn't looking for love. I was focused on getting through my days and figuring things out on my own but then you came into my life and everything felt different and that makes it special. I can't imagine my life without you, sinanay mo kong nanjan ka palagi para sakin.
+    <br><br>
+    I'm very grateful to have you and how perfectly unexpected you are. Loving you wasn’t something I chased, it simply happened, and it feels real in a way nothing else ever did.
+    <br><br>
+    When life isn't being kind to you, always remember na nandito lang ako palagi kasama mo. You don't have to face it alone, we'll face it together, ga. I love you, forever.
+    <br><br>
+    Love,<br>
+    <strong>AD</strong>
+  </div>
+</div>
+
+<script>
+function go(n) {
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+  document.getElementById('p' + n).classList.add('active');
+}
+</script>
+
+</body>
+</html>
