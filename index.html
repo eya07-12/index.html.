@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For You 🤍</title>
 
 <style>
@@ -43,7 +43,7 @@ body {
 }
 
 .card {
-  animation: fade 0.5s ease;
+  animation: fade 0.4s ease;
 }
 
 h1 {
@@ -58,7 +58,7 @@ p {
 }
 
 button {
-  margin-top: 20px;
+  margin: 10px 6px 0;
   padding: 12px 22px;
   border: none;
   border-radius: 30px;
@@ -68,13 +68,18 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background: #ff4f90;
+button.secondary {
+  background: #ccc;
+  color: #333;
 }
 
-.envelope {
+button:hover {
+  opacity: 0.9;
+}
+
+.gif {
   width: 160px;
-  margin: 15px auto;
+  margin: 10px auto;
 }
 
 .letter {
@@ -97,20 +102,29 @@ button:hover {
 
   <!-- SCREEN 1 -->
   <div id="screen1" class="card">
+    <img class="gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGZ4bWZ4Z21zM2ZqZzV1M3BxbmJrNWd4M2x2aDZvMHRiOHp0bHplZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0HlPjezGYpXw9PzO/giphy.gif">
     <h1>For you 🤍</h1>
-    <p>Click the button to open something special</p>
-    <button onclick="next(2)">Open</button>
+    <p>I made something special</p>
+    <button onclick="go(2)">Continue</button>
   </div>
 
-  <!-- SCREEN 2 -->
+  <!-- SCREEN 2 (YES / NO) -->
   <div id="screen2" class="card hidden">
-    <img class="envelope" src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
+    <img class="gif" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
     <p>Do you want to open it?</p>
-    <button onclick="next(3)">Yes</button>
+    <button onclick="go(4)">Yes 💕</button>
+    <button class="secondary" onclick="go(3)">No 😢</button>
   </div>
 
-  <!-- SCREEN 3 -->
+  <!-- SCREEN 3 (SAD) -->
   <div id="screen3" class="card hidden">
+    <img class="gif" src="https://media.giphy.com/media/d2lcHJTG5Tscg/giphy.gif">
+    <p>Oh… that made me sad 🥺</p>
+    <button onclick="go(2)">Try again</button>
+  </div>
+
+  <!-- SCREEN 4 (LETTER) -->
+  <div id="screen4" class="card hidden">
     <h1>My letter 💗</h1>
     <div class="letter">
       <p>
@@ -129,9 +143,9 @@ button:hover {
 </div>
 
 <script>
-function next(n) {
+function go(screen) {
   document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
-  document.getElementById('screen' + n).classList.remove('hidden');
+  document.getElementById('screen' + screen).classList.remove('hidden');
 }
 </script>
 
