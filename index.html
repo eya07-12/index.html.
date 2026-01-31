@@ -3,26 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You 🤍</title>
+<title>Happy Monthsary 🤍</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 * {
   box-sizing: border-box;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background: repeating-linear-gradient(
-    45deg,
-    #ffd6e7,
-    #ffd6e7 10px,
-    #ffe6f0 10px,
-    #ffe6f0 20px
-  );
+  background: #ffeaf2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,37 +25,44 @@ body {
 .container {
   width: 90%;
   max-width: 380px;
-  background: #fff0f6;
-  border-radius: 25px;
-  padding: 25px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  background: #fff;
+  border-radius: 22px;
+  padding: 22px;
   text-align: center;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
 }
 
-.hidden {
+.screen {
   display: none;
+  animation: fade 0.35s ease;
 }
 
-.card {
-  animation: fade 0.4s ease;
+.screen.active {
+  display: block;
+}
+
+img {
+  width: 160px;
+  margin: 10px auto;
 }
 
 h1 {
+  font-size: 20px;
   color: #ff6fa5;
-  font-size: 22px;
+  margin-bottom: 10px;
 }
 
 p {
+  font-size: 14px;
   color: #555;
-  font-size: 15px;
   line-height: 1.6;
 }
 
 button {
-  margin: 10px 6px 0;
+  margin-top: 16px;
   padding: 12px 22px;
+  border-radius: 25px;
   border: none;
-  border-radius: 30px;
   background: #ff6fa5;
   color: white;
   font-size: 14px;
@@ -69,28 +70,24 @@ button {
 }
 
 button.secondary {
-  background: #ccc;
+  background: #d9d9d9;
   color: #333;
+  margin-left: 6px;
 }
 
 button:hover {
   opacity: 0.9;
 }
 
-.gif {
-  width: 160px;
-  margin: 10px auto;
-}
-
 .letter {
-  max-height: 300px;
+  max-height: 280px;
   overflow-y: auto;
-  padding: 10px;
+  padding: 8px;
   text-align: left;
 }
 
 @keyframes fade {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 </style>
@@ -100,32 +97,34 @@ button:hover {
 
 <div class="container">
 
-  <!-- SCREEN 1 -->
-  <div id="screen1" class="card">
-    <img class="gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGZ4bWZ4Z21zM2ZqZzV1M3BxbmJrNWd4M2x2aDZvMHRiOHp0bHplZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0HlPjezGYpXw9PzO/giphy.gif">
-    <h1>For you 🤍</h1>
-    <p>I made something special</p>
-    <button onclick="go(2)">Continue</button>
+  <!-- PAGE 1: CINNAMON ROLL -->
+  <div id="page1" class="screen active">
+    <!-- Cinnamon roll image -->
+    <img src="https://i.imgur.com/Y6bKZ6N.png" alt="Cinnamon Roll">
+    <h1>happy monthsary baby 🤍</h1>
+    <button onclick="go(2)">next</button>
   </div>
 
-  <!-- SCREEN 2 (YES / NO) -->
-  <div id="screen2" class="card hidden">
-    <img class="gif" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
-    <p>Do you want to open it?</p>
-    <button onclick="go(4)">Yes 💕</button>
-    <button class="secondary" onclick="go(3)">No 😢</button>
+  <!-- PAGE 2: MAIL YES / NO -->
+  <div id="page2" class="screen">
+    <!-- Envelope image -->
+    <img src="https://i.imgur.com/6RL9Z0c.png" alt="Mail">
+    <p>do you want to open this?</p>
+    <button onclick="go(4)">yes 💌</button>
+    <button class="secondary" onclick="go(3)">no</button>
   </div>
 
-  <!-- SCREEN 3 (SAD) -->
-  <div id="screen3" class="card hidden">
-    <img class="gif" src="https://media.giphy.com/media/d2lcHJTG5Tscg/giphy.gif">
-    <p>Oh… that made me sad 🥺</p>
-    <button onclick="go(2)">Try again</button>
+  <!-- PAGE 3: SAD -->
+  <div id="page3" class="screen">
+    <!-- Sad cute image -->
+    <img src="https://i.imgur.com/0y8Ftya.png" alt="Sad">
+    <p>that made me sad 🥺</p>
+    <button onclick="go(2)">again</button>
   </div>
 
-  <!-- SCREEN 4 (LETTER) -->
-  <div id="screen4" class="card hidden">
-    <h1>My letter 💗</h1>
+  <!-- PAGE 4: LETTER -->
+  <div id="page4" class="screen">
+    <h1>for you 💗</h1>
     <div class="letter">
       <p>
         I remember the time when I wasn't looking for love. I was focused on getting through my days and figuring things out on my own but then you came into my life and everything felt different and that makes it special. I can't imagine my life without you, sinanay mo kong nanjan ka palagi para sakin.
@@ -143,9 +142,9 @@ button:hover {
 </div>
 
 <script>
-function go(screen) {
-  document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
-  document.getElementById('screen' + screen).classList.remove('hidden');
+function go(page) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('page' + page).classList.add('active');
 }
 </script>
 
